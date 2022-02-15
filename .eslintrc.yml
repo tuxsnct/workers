@@ -1,0 +1,7 @@
+env:
+  es2020: true
+extends:
+  - tuxsnct
+  - tuxsnct/typescript
+parserOptions:
+  project: ./tsconfig.json
