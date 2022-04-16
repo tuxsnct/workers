@@ -1,0 +1,40 @@
+{
+  "name": "workers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "tuxsnct's API, for managing blog posts, and so on. Runs on Cloudflare Workers.",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuxsnct/workers.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Hideki Tanaka",
+    "email": "work@tuxsnct.com",
+    "url": "https://www.tuxsnct.com/"
+  },
+  "main": "dist/worker.js",
+  "scripts": {
+    "build": "pnpm run build --filter .",
+    "deploy": "pnpm run deploy --filter ./packages/workers",
+    "lint": "pnpm run lint --filter .",
+    "lint:fix": "npm run lint --fix",
+    "start": "pnpm run start --filter ./packages/workers",
+    "typecheck": "pnpm run typecheck --filter ."
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "3.5.1",
+    "@cloudflare/wrangler": "1.19.11",
+    "esbuild": "0.14.36",
+    "eslint": "8.13.0",
+    "eslint-config-tuxsnct": "latest",
+    "mkdirp": "1.0.4",
+    "typescript": "4.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "trim@<0.0.3": ">=0.0.3"
+    }
+  }
+}

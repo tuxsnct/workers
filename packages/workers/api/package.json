@@ -1,0 +1,32 @@
+{
+  "name": "@tuxsnct/api-worker",
+  "version": "1.2.0",
+  "private": true,
+  "description": "tuxsnct's API, for managing blog posts, and so on. Runs on Cloudflare Workers.",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuxsnct/workers.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Hideki Tanaka",
+    "email": "work@tuxsnct.com",
+    "url": "https://www.tuxsnct.com/"
+  },
+  "main": "dist/worker.js",
+  "scripts": {
+    "build": "wrangler build",
+    "deploy": "wrangler publish",
+    "lint": "eslint './**/*.{js,ts,json,yaml,yml,toml}'",
+    "lint:fix": "npm run lint --fix",
+    "start": "wrangler dev",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tuxsnct/workers-module-auth": "workspace:^1.0.0",
+    "graphql": "^16.3.0",
+    "nanoid": "^3.3.2",
+    "worktop": "^0.7.3"
+  }
+}

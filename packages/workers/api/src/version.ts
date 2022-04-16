@@ -1,0 +1,11 @@
+export const API_MAJOR_VERSION = 1
+export const API_MINOR_VERSION = 2
+export const API_PATCH_VERSION = 0
+
+export const API_VERSION = [
+  API_MAJOR_VERSION,
+  API_MINOR_VERSION,
+  API_PATCH_VERSION
+]
+
+export const API_VERSION_STRING = API_VERSION.join('.')
