@@ -24,6 +24,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "worktop": "^0.7.3"
+    "worktop": "0.7.3"
   }
 }
