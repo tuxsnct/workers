@@ -4,7 +4,7 @@ route = 'images.tuxsnct.com/*'
 zone_id = 'b8be62d2bdbf2710249429aea588a14e'
 usage_model = ''
 compatibility_flags = []
-workers_dev = false
+workers_dev = true
 compatibility_date = "2022-02-17"
 
 [build]
@@ -13,3 +13,6 @@ command = "mkdirp ./dist && esbuild ./src/main.ts --outfile=./dist/worker.js --b
 
 [build.upload]
 format = "service-worker"
+
+[env.production]
+route = 'api.tuxsnct.com/*'

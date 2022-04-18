@@ -1,28 +1,28 @@
-import { User, getJwtTokens, setCookie } from '@tuxsnct/workers-module-auth'
-import { nanoid } from 'nanoid'
+import { User, getJwtTokens, generateCookie, generateSecret } from '@tuxsnct/workers-module-auth'
 import { Handler } from 'worktop'
 import { KV, read, write } from 'worktop/kv'
+import { uid } from 'worktop/utils'
 
 // eslint-disable-next-line init-declarations
 declare let USERS: KV.Namespace
 
 // eslint-disable-next-line max-statements
 export const handleRegister: Handler = async (request, response) => {
-  const user = await request.body() as User
-  user.id = nanoid()
-  user.admin = false
+  let { code, data, headers }: ResponseItems = { code: 401, data: {}, headers: { 'content-type': 'application/json' } }
 
-  response.setHeader('Content-Type', 'application/json')
+  const user = await request.body() as User
+  user.id = uid()
+  const secret = generateSecret().toUpperCase()
+  user.secret = secret
 
   if (!(await read(USERS, user.email)) && await write(USERS, user.email, JSON.stringify(user))) {
-    delete user.password
     const jwtTokens = await getJwtTokens(user)
 
     if (jwtTokens) {
-      setCookie(response, { name: 'token', value: jwtTokens.cookieToken })
-      response.send(200, { token: jwtTokens.csrfToken })
-      return
+      code = 200
+      data = { secret, token: jwtTokens.csrfToken }
+      headers['set-cookie'] = generateCookie({ name: 'token', value: jwtTokens.cookieToken })
     }
   }
-  response.send(401, {})
+  response.send(code, data, headers)
 }

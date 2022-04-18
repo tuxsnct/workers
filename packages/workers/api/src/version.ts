@@ -1,5 +1,5 @@
 export const API_MAJOR_VERSION = 1
-export const API_MINOR_VERSION = 2
+export const API_MINOR_VERSION = 3
 export const API_PATCH_VERSION = 0
 
 export const API_VERSION = [

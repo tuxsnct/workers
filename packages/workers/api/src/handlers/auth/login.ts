@@ -1,4 +1,4 @@
-import { Credential, getJwtTokens, setCookie, User } from '@tuxsnct/workers-module-auth'
+import { Credential, getJwtTokens, generateCookie, totp, User } from '@tuxsnct/workers-module-auth'
 import { Handler } from 'worktop'
 import { KV, read } from 'worktop/kv'
 
@@ -7,23 +7,27 @@ declare let USERS: KV.Namespace
 
 // eslint-disable-next-line max-statements
 export const handleLogin: Handler = async (request, response) => {
-  const credential = await request.body() as Credential
+  let { code, data, headers }: ResponseItems = { code: 401, data: {}, headers: { 'content-type': 'application/json' } }
+  const { email, otp, password } = await request.body() as Credential
 
-  response.setHeader('Content-Type', 'application/json')
+  const user = await read(USERS, email) as User
 
-  if (credential) {
-    const user = await read(USERS, credential.email) as User
+  if (user) {
+    const totpArray = [
+      await totp(user.secret, 6, -30),
+      await totp(user.secret, 6),
+      await totp(user.secret, 6, 30)
+    ]
 
-    if (user && user.email === credential.email && user.password === credential.password) {
-      delete user.password
+    if (user.email === email && user.password === password && totpArray.includes(otp)) {
       const jwtTokens = await getJwtTokens(user)
 
       if (jwtTokens) {
-        setCookie(response, { name: 'token', value: jwtTokens.cookieToken })
-        response.send(200, { token: jwtTokens.csrfToken })
-        return
+        code = 200
+        data = { token: jwtTokens.csrfToken }
+        headers['set-cookie'] = generateCookie({ name: 'token', value: jwtTokens.cookieToken })
       }
     }
   }
-  response.send(401, {})
+  response.send(code, data, headers)
 }
