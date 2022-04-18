@@ -35,12 +35,12 @@ importers:
     specifiers:
       '@tuxsnct/workers-module-auth': workspace:^1.0.0
       graphql: 16.3.0
-      nanoid: 3.3.2
+      nanoid: 3.3.3
       worktop: 0.7.3
     dependencies:
       '@tuxsnct/workers-module-auth': link:../../modules/auth
       graphql: 16.3.0
-      nanoid: 3.3.2
+      nanoid: 3.3.3
       worktop: 0.7.3
 
   packages/workers/images:
@@ -3992,8 +3992,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /nanoid/3.3.2:
-    resolution: {integrity: sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==}
+  /nanoid/3.3.3:
+    resolution: {integrity: sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: false
