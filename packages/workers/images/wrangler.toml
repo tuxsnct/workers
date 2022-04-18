@@ -4,7 +4,7 @@ route = 'images.tuxsnct.com/*'
 zone_id = 'b8be62d2bdbf2710249429aea588a14e'
 usage_model = ''
 compatibility_flags = []
-workers_dev = true
+workers_dev = false
 compatibility_date = "2022-02-17"
 
 [build]
