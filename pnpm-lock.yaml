@@ -8,7 +8,7 @@ importers:
   .:
     specifiers:
       '@cloudflare/workers-types': 3.5.1
-      '@cloudflare/wrangler': 1.19.11
+      '@cloudflare/wrangler': 1.19.12
       esbuild: 0.14.37
       eslint: 8.13.0
       eslint-config-tuxsnct: latest
@@ -16,7 +16,7 @@ importers:
       typescript: 4.6.3
     devDependencies:
       '@cloudflare/workers-types': 3.5.1
-      '@cloudflare/wrangler': 1.19.11
+      '@cloudflare/wrangler': 1.19.12
       esbuild: 0.14.37
       eslint: 8.13.0
       eslint-config-tuxsnct: 4.1.1_eslint@8.13.0
@@ -457,8 +457,8 @@ packages:
     resolution: {integrity: sha512-3InFTahEqziyJ2DSRL29TmrukGvxsijxwOP+Jb1gdihEuRLhwwtY49hgpExGm21HBu6E6Qr/RxlPUp2+o+qoUg==}
     dev: true
 
-  /@cloudflare/wrangler/1.19.11:
-    resolution: {integrity: sha512-aUoSHodCx79b1mMxv2L68fEQmMj+6vFO5dwCozBPL8AE81XumeUau2RfqQEAInciESdiJbYnam7b1q2D59PQew==}
+  /@cloudflare/wrangler/1.19.12:
+    resolution: {integrity: sha512-ALuQDzJetYGqzNuIa3KY8S8X9rvZjIh5uEY3nK31jV/EmBamiiSJn4XIdPuSn65FaEmmZem78OJIWFyu80OIuA==}
     hasBin: true
     requiresBuild: true
     dependencies:
