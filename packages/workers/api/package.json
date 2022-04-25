@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@tuxsnct/workers-module-auth": "workspace:^2.0.0",
-    "graphql": "16.3.0",
+    "graphql": "16.4.0",
     "worktop": "0.7.3"
   }
 }
