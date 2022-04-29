@@ -10,10 +10,13 @@ export type User = Credential & {
   secret: string
 }
 
-export const credentialHiddenKeys = ['password', 'otp'] as const
-export type CredentialHiddenKeys = typeof credentialHiddenKeys[number]
-
-export const userHiddenKeys = [...credentialHiddenKeys, 'secret'] as const
+export const userHiddenKeys = ['password', 'otp', 'secret'] as const
 export type UserHiddenKeys = typeof userHiddenKeys[number]
 
-export type UserData = PartiallyPartial<User, UserHiddenKeys>
+export type UserData = Omit<User, UserHiddenKeys>
+
+export const deleteHiddenUserProperties = (user: User): UserData => {
+  // eslint-disable-next-line security/detect-object-injection
+  for (const key of userHiddenKeys.values()) delete user[key]
+  return user
+}

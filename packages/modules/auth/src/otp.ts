@@ -42,6 +42,6 @@ export const generateKeyUriFormat = (issuer: string, accountName: string, secret
 
 export const generateSecret = (length = 16) =>
   // eslint-disable-next-line unicorn/no-new-array
-  [...(new Array(length).keys())].map(() => base32Chars[Math.floor(Math.random() * base32Chars.length)]).join('')
+  [...new Array(length).keys()].map(() => base32Chars[Math.round(Math.random() * base32Chars.length)]).join('')
 
 /* eslint-enable implicit-arrow-linebreak, no-bitwise */
