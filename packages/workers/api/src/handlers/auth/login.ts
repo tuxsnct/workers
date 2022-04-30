@@ -2,6 +2,7 @@ import { Validator, Schema } from '@cfworker/json-schema'
 import { Credential, getJwtTokens, generateCookie, totp, User } from '@tuxsnct/workers-module-auth'
 import { Handler } from 'worktop'
 import { KV, read } from 'worktop/kv'
+import { defaultSerializeOptions } from '../../cookie'
 
 // eslint-disable-next-line init-declarations
 declare let USERS: KV.Namespace
@@ -39,7 +40,10 @@ export const handleLogin: Handler = async (request, response) => {
         if (jwtTokens) {
           code = 200
           data = { token: jwtTokens.csrfToken }
-          headers['set-cookie'] = generateCookie({ name: 'token', value: jwtTokens.cookieToken })
+          headers['set-cookie'] = generateCookie(
+            { name: 'token', value: jwtTokens.cookieToken },
+            defaultSerializeOptions
+          )
         }
       }
     }

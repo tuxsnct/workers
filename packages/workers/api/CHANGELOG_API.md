@@ -1,5 +1,10 @@
 # API Worker 変更履歴
 
+### v1.6.0
+- API Workerから移動したgenerateCookie関数の既定値の追加
+- generateCookie関数の既定値の変更
+  - Cookieトークンの安全性向上
+
 ### v1.5.0
 - バリデーション機能の追加
 - コードの簡素化

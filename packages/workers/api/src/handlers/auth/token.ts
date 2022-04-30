@@ -7,6 +7,7 @@ import {
 } from '@tuxsnct/workers-module-auth'
 import { Handler } from 'worktop'
 import { parse } from 'worktop/cookie'
+import { defaultSerializeOptions } from '../../cookie'
 
 // eslint-disable-next-line max-statements
 export const handleToken: Handler = async (request, response) => {
@@ -21,7 +22,7 @@ export const handleToken: Handler = async (request, response) => {
     if (jwtTokens) {
       code = 200
       data = { token: jwtTokens.csrfToken }
-      headers['set-cookie'] = generateCookie({ name: 'token', value: jwtTokens.cookieToken })
+      headers['set-cookie'] = generateCookie({ name: 'token', value: jwtTokens.cookieToken }, defaultSerializeOptions)
     }
   }
   response.send(code, data, headers)

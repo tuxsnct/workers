@@ -3,6 +3,7 @@ import { getJwtTokens, generateCookie, generateSecret, User } from '@tuxsnct/wor
 import { Handler } from 'worktop'
 import { KV, read, write } from 'worktop/kv'
 import { uid } from 'worktop/utils'
+import { defaultSerializeOptions } from '../../cookie'
 
 // eslint-disable-next-line init-declarations
 declare let USERS: KV.Namespace
@@ -33,7 +34,7 @@ export const handleRegister: Handler = async (request, response) => {
       if (jwtTokens) {
         code = 200
         data = { secret, token: jwtTokens.csrfToken }
-        headers['set-cookie'] = generateCookie({ name: 'token', value: jwtTokens.cookieToken })
+        headers['set-cookie'] = generateCookie({ name: 'token', value: jwtTokens.cookieToken }, defaultSerializeOptions)
       }
     }
   }
