@@ -1,5 +1,8 @@
 # Authentication Module 変更履歴
 
+### v2.2.0
+- generateCookie関数の既定値をAPI Workerに移動
+
 ### v2.1.0
 - シークレット生成の安全性向上
 - Base32のバグ修正
