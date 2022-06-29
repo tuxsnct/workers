@@ -26,7 +26,7 @@
     "typecheck": "pnpm run typecheck --filter ."
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "3.8.0",
+    "@cloudflare/workers-types": "3.14.0",
     "@cloudflare/wrangler": "1.19.12",
     "esbuild": "0.14.38",
     "eslint": "8.14.0",
