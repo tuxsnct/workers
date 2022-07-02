@@ -24,7 +24,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@cfworker/json-schema": "1.12.2",
+    "@cfworker/json-schema": "1.12.3",
     "@tuxsnct/workers-module-auth": "workspace:2.3.0",
     "worktop": "0.7.3"
   }
