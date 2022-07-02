@@ -7,10 +7,11 @@ export type Credential = {
 export type User = Credential & {
   name: string,
   id: string,
-  secret: string
+  secret: string,
+  admin?: boolean
 }
 
-export const userHiddenKeys = ['password', 'otp', 'secret'] as const
+export const userHiddenKeys = ['password', 'otp', 'secret', 'admin'] as const
 export type UserHiddenKeys = typeof userHiddenKeys[number]
 
 export type UserData = Omit<User, UserHiddenKeys>

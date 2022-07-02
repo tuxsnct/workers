@@ -1,0 +1,21 @@
+name = "auth"
+type = "javascript"
+zone_id = 'b8be62d2bdbf2710249429aea588a14e'
+usage_model = ''
+compatibility_flags = []
+workers_dev = false
+compatibility_date = "2022-04-18"
+
+[[kv_namespaces]]
+binding = "USERS"
+id = "3f88aea28ba3482ab7b006da9ea5260d"
+
+[build]
+# eslint-disable-next-line max-len
+command = "mkdirp ./dist && esbuild ./src/main.ts --outfile=./dist/worker.js --bundle --minify --legal-comments=external --metafile=./dist/meta.json"
+
+[build.upload]
+format = "service-worker"
+
+[env.production]
+route = 'api.tuxsnct.com/auth*'

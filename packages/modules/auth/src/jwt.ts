@@ -8,9 +8,9 @@ export type JwtPayload = PartiallyPartial<User, UserHiddenKeys> & {
   exp?: number
 }
 
-export const getRefreshedJwt = (jwtPayload: JwtPayload) => {
-  jwtPayload.exp = Math.floor(Date.now() / 1000) + (60 * 60)
-  return jwtPayload
+export const getRefreshedJwt = (payload: JwtPayload) => {
+  payload.exp = Math.floor(Date.now() / 1000) + (60 * 60)
+  return payload
 }
 
 export const validateAuthFormat = (auth: string) => {
@@ -53,16 +53,17 @@ const splitJwt = (token: string) => {
   return null
 }
 
-export const getJwtTokens = async (jwtPayload: JwtPayload, withCredential = false) => {
+export const getJwtTokens = async (payload: JwtPayload, withCredential = false) => {
   if (!withCredential) {
     for (const key of userHiddenKeys) {
       // eslint-disable-next-line security/detect-object-injection
-      delete jwtPayload[key]
+      delete payload[key]
     }
   }
-  const splittedJwt = splitJwt(await jwt.sign(getRefreshedJwt(jwtPayload), SECRET_KEY, { algorithm: 'HS256' }))
+  const splittedJwt = splitJwt(await jwt.sign(getRefreshedJwt(payload), SECRET_KEY, { algorithm: 'HS256' }))
 
   if (splittedJwt) {
+    // eslint-disable-next-line no-shadow
     const { header, payload, signature } = splittedJwt
 
     if (signature) {

@@ -1,7 +1,8 @@
 {
-  "name": "@tuxsnct/workers-module-auth",
-  "version": "2.3.0",
-  "description": "Module for user authentication using JWT. Runs on Cloudflare Workers.",
+  "name": "@tuxsnct/blog-worker",
+  "version": "2.1.0",
+  "private": true,
+  "description": "tuxsnct's Blogging API. Runs on Cloudflare Workers.",
   "keywords": [],
   "repository": {
     "type": "git",
@@ -13,16 +14,18 @@
     "email": "work@tuxsnct.com",
     "url": "https://www.tuxsnct.com/"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/worker.js",
   "scripts": {
-    "build": "mkdirp ./dist && esbuild ./src/index.ts --outfile=./dist/index.js --bundle --format=esm && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "build": "wrangler build",
+    "deploy": "wrangler publish",
     "lint": "eslint './**/*.{js,ts,json,yaml,yml,toml}'",
     "lint:fix": "npm run lint --fix",
+    "start": "wrangler dev",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tsndr/cloudflare-worker-jwt": "1.1.7",
+    "@cfworker/json-schema": "1.12.2",
+    "@tuxsnct/workers-module-auth": "workspace:2.3.0",
     "worktop": "0.7.3"
   }
 }
