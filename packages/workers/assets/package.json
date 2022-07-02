@@ -2,7 +2,7 @@
   "name": "@tuxsnct/assets-worker",
   "version": "1.0.0",
   "private": true,
-  "description": "tuxsnct's assets. Runs on Cloudflare Workers with R2.",
+  "description": "tuxsnct's Assets API. Runs on Cloudflare Workers with R2.",
   "keywords": [],
   "repository": {
     "type": "git",
