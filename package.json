@@ -20,9 +20,9 @@
     "build:modules": "pnpm -r --filter './packages/modules/**' build",
     "build:workers": "pnpm -r --filter './packages/workers/**' build",
     "clean": "pnpm -r rimraf ./dist",
-    "deploy": "pnpm -r --filter './packages/workers/**' deploy",
     "lint": "pnpm -r lint",
     "lint:fix": "npm run lint --fix",
+    "publish-worker": "pnpm -r --filter './packages/workers/**' publish-worker",
     "start": "pnpm -r --filter './packages/workers/**' start",
     "typecheck": "pnpm -r typecheck"
   },

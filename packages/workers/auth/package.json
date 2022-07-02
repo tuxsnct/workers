@@ -17,9 +17,9 @@
   "main": "dist/worker.js",
   "scripts": {
     "build": "wrangler build",
-    "deploy": "wrangler publish",
     "lint": "eslint './**/*.{js,ts,json,yaml,yml,toml}'",
     "lint:fix": "npm run lint --fix",
+    "publish-worker": "wrangler publish",
     "start": "wrangler dev",
     "typecheck": "tsc --noEmit"
   },
