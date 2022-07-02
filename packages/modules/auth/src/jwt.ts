@@ -28,7 +28,7 @@ export const getAuthHeaderToken = (auth: string) => {
 
 export const getJwtPayload = async (auth: string) => {
   const token = getAuthHeaderToken(auth)
-  if (token && await jwt.verify(token, SECRET_KEY)) return jwt.decode(token) as JwtPayload
+  if (token && await jwt.verify(token, SECRET_KEY)) return jwt.decode(token) as unknown as JwtPayload
   // eslint-disable-next-line unicorn/no-null
   return null
 }
