@@ -25,6 +25,7 @@ const detectBucket = (bucket: string) => {
 
 const router = new Router()
 
+// eslint-disable-next-line max-statements
 router.add('GET', '/:bucket/:key', async (request, response) => {
   try {
     const bucket = detectBucket(request.params.bucket)
@@ -33,6 +34,7 @@ router.add('GET', '/:bucket/:key', async (request, response) => {
     if (object) {
       object.writeHttpMetadata(response.headers)
       response.headers.set('etag', object.etag)
+      response.headers.set('cache-control', 'public, max-age=15552000')
       response.end(object.body)
       return
     }
