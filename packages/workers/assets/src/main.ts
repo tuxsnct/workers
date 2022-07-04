@@ -15,12 +15,16 @@ import { KV, read } from 'worktop/kv'
 
 /* eslint-disable init-declarations, @typescript-eslint/no-unused-vars */
 declare let BLOG: R2Bucket
+declare let COMMON: R2Bucket
 declare let USERS: KV.Namespace
 /* eslint-enable init-declarations, @typescript-eslint/no-unused-vars */
 
-const detectBucket = (bucket: string) => {
+type Bucket = 'blog' | 'common'
+
+const detectBucket = (bucket: Bucket) => {
   if (bucket === 'blog') return BLOG
-  throw new Error(`bucket ${bucket} does not exist`)
+  else if (bucket === 'common') return COMMON
+  throw new Error(`bucket ${bucket as string} does not exist`)
 }
 
 const router = new Router()
@@ -28,7 +32,7 @@ const router = new Router()
 // eslint-disable-next-line max-statements
 router.add('GET', '/:bucket/:key', async (request, response) => {
   try {
-    const bucket = detectBucket(request.params.bucket)
+    const bucket = detectBucket(request.params.bucket as Bucket)
     const object = await bucket.get(request.params.key)
 
     if (object) {
