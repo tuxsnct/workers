@@ -53,7 +53,7 @@ router.add('POST', '/:bucket/:key', async (request, response) => {
   try {
     const auth = request.headers.get('Authorization')
     const cookie = request.headers.get('Cookie')
-    const bucket = detectBucket(request.params.bucket)
+    const bucket = detectBucket(request.params.bucket as Bucket)
 
     const blob = await request.body.blob()
 
