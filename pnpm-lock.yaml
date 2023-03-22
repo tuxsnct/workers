@@ -12,7 +12,7 @@ importers:
       esbuild: 0.14.48
       eslint: 8.19.0
       eslint-config-tuxsnct: 4.2.0
-      mkdirp: 1.0.4
+      mkdirp: 2.1.6
       typescript: 4.7.4
     devDependencies:
       '@cloudflare/workers-types': 3.14.0
@@ -20,7 +20,7 @@ importers:
       esbuild: 0.14.48
       eslint: 8.19.0
       eslint-config-tuxsnct: 4.2.0_eslint@8.19.0
-      mkdirp: 1.0.4
+      mkdirp: 2.1.6
       typescript: 4.7.4
 
   packages/modules/auth:
@@ -4276,6 +4276,12 @@ packages:
 
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dev: true
+
+  /mkdirp/2.1.6:
+    resolution: {integrity: sha512-+hEnITedc8LAtIP9u3HJDFIdcLV2vXP33sqLLIzkv1Db1zO/1OxbvYf0Y1OC/S/Qo5dxHXepofhmxL02PsKe+A==}
     engines: {node: '>=10'}
     hasBin: true
     dev: true
