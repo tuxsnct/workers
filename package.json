@@ -29,7 +29,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "3.14.0",
     "@cloudflare/wrangler": "1.19.12",
-    "esbuild": "0.14.48",
+    "esbuild": "0.24.0",
     "eslint": "8.19.0",
     "eslint-config-tuxsnct": "4.2.0",
     "mkdirp": "1.0.4",
