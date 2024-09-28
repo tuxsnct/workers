@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tsndr/cloudflare-worker-jwt": "2.0.0",
+    "@tsndr/cloudflare-worker-jwt": "2.5.4",
     "worktop": "0.7.3"
   }
 }
