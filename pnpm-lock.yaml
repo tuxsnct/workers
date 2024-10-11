@@ -7,7 +7,7 @@ importers:
 
   .:
     specifiers:
-      '@cloudflare/workers-types': 3.14.0
+      '@cloudflare/workers-types': 4.20241011.0
       '@cloudflare/wrangler': 1.19.12
       esbuild: 0.14.48
       eslint: 8.19.0
@@ -15,7 +15,7 @@ importers:
       mkdirp: 1.0.4
       typescript: 4.7.4
     devDependencies:
-      '@cloudflare/workers-types': 3.14.0
+      '@cloudflare/workers-types': 4.20241011.0
       '@cloudflare/wrangler': 1.19.12
       esbuild: 0.14.48
       eslint: 8.19.0
@@ -403,8 +403,8 @@ packages:
     resolution: {integrity: sha512-L27wX0PkCGKadJeNqfpiLrXSfbLoC7xTmnF9OImA3Zr6Vtd9BeZGEOa5SKEzeS+ukkFUtN98Pz77vdEfobeTFg==}
     dev: false
 
-  /@cloudflare/workers-types/3.14.0:
-    resolution: {integrity: sha512-F6lZuzu/vNl9AxOq1U3x2UCi68bcE1O59cKGQ5ntRh3lGQfd3vers6NUag02T7P+qFCHaAp78QN6fRmq12Y3iA==}
+  /@cloudflare/workers-types/4.20241011.0:
+    resolution: {integrity: sha512-emwBnuFB/2lS1z6NXAeBqrSL8Xwnr7YpgdLuchOmgu/igqBsLLNPBb4Qmgh3neFWUe9wbzQyx030836YF3c3Xw==}
     dev: true
 
   /@cloudflare/wrangler/1.19.12:
