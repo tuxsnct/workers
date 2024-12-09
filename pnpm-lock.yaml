@@ -25,10 +25,10 @@ importers:
 
   packages/modules/auth:
     specifiers:
-      '@tsndr/cloudflare-worker-jwt': 2.0.0
+      '@tsndr/cloudflare-worker-jwt': 2.5.4
       worktop: 0.7.3
     dependencies:
-      '@tsndr/cloudflare-worker-jwt': 2.0.0
+      '@tsndr/cloudflare-worker-jwt': 2.5.4
       worktop: 0.7.3
 
   packages/workers/assets:
@@ -785,8 +785,8 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: true
 
-  /@tsndr/cloudflare-worker-jwt/2.0.0:
-    resolution: {integrity: sha512-mTZihX9SF9AEwuRpdmTb38hMg6b3wprdKHSU3uZl4A8vD/ru4fIByEhE6kgyn2Stw+FL6XAXEgRVg19pOUujaA==}
+  /@tsndr/cloudflare-worker-jwt/2.5.4:
+    resolution: {integrity: sha512-f9lU8CL9NrsA3f8+Hanlgjl8Ten+WRAaV3DbmbReQGdH5rCRJeDSzpVaMjV6ifZP5hl8gvEumc18KqtT6xtX4A==}
     dev: false
 
   /@types/acorn/4.0.6:
